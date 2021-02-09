@@ -3,7 +3,7 @@
 //  Flipboard
 //
 //  Created by Raphael Schaad on 7/8/13.
-//  Copyright (c) 2013-2015 Flipboard. All rights reserved.
+//  Copyright (c) Flipboard. All rights reserved.
 //
 
 
@@ -102,8 +102,8 @@
     if (![_animatedImage isEqual:animatedImage]) {
         if (animatedImage) {
             if (super.image) {
-                // UIImageView's `setImage:` will internally call its layer's `setContentsTransoforms:` based on the `image.imageOrientation`.
-                // The `contentsTransoforms` will affect layer rendering rotation because the CGImage's bitmap buffer does not actually take rotation.
+                // UIImageView's `setImage:` will internally call its layer's `setContentsTransform:` based on the `image.imageOrientation`.
+                // The `contentsTransform` will affect layer rendering rotation because the CGImage's bitmap buffer does not actually take rotation.
                 // However, when calling `setImage:nil`, this `contentsTransoforms` will not be reset to identity.
                 // Further animation frame will be rendered as rotated. So we must set it to the poster image to clear the previous state.
                 // See more here: https://github.com/Flipboard/FLAnimatedImage/issues/100
